@@ -20,6 +20,7 @@ import android.widget.ListView;
 
 public class LonelyTwitterActivity extends Activity {
 
+	// cannot access outside the class; cannot change; only 1 copy;
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
@@ -48,6 +49,25 @@ public class LonelyTwitterActivity extends Activity {
 
 	@Override
 	protected void onStart() {
+		
+		// create new object, use new
+		// if change User to Object
+		// object don't have set name method
+		User u = new Author("joe");
+		try{
+			u.setName("joe2");
+		//} catch (RuntimeException e) {
+		} catch (IOException e) {
+		// some code that tells the user to use a shorter name
+		//u.setName("joe2");
+			// TODO Auto-generated catch block 
+			e.printStackTrace();
+		}
+		
+		// x is a variable to the list of 
+		ArrayList<User>x = new ArrayList<User>();
+		
+		
 		// TODO Auto-generated method stub
 		super.onStart();
 		String[] tweets = loadFromFile();

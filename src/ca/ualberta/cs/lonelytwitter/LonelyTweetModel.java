@@ -5,10 +5,12 @@ import java.util.Date;
 public abstract class LonelyTweetModel {
 	private String text;
 	private Date timestamp;
+	// it takes no argument 
 	public String getText() {
 		return text;
 	}
 	
+	// it is a constructor
 	public LonelyTweetModel(String text) {
 		super();
 		this.text = text;
