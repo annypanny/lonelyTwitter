@@ -65,7 +65,7 @@ public class LonelyTwitterActivity extends Activity {
 		}
 		
 		// x is a variable to the list of 
-		ArrayList<User>x = new ArrayList<User>();
+		//ArrayList<User>x = new ArrayList<User>();
 		
 		
 		// TODO Auto-generated method stub
