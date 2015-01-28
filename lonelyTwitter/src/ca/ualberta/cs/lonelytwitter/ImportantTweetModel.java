@@ -20,5 +20,14 @@ public class ImportantTweetModel extends LonelyTweetModel {
 	public Date getTimestamp() {
 		return timestamp;
 	}
+	
+	public boolean equals(Object other) {
+		if (other == null || !(other instanceof LonelyTweetModel)) {
+			return false;
+		}
+		
+		LonelyTweetModel otherTweet = (LonelyTweetModel) other;
+		return timestamp.equals(otherTweet.timestamp) && text.equals(otherTweet.text);
+	}
 
 }

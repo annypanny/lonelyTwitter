@@ -32,6 +32,8 @@ public abstract class LonelyTweetModel {
 		this.timestamp = timestamp;
 	}
 	
+	
+	// bug: no difference between normal tweet and important tweet.
 	public boolean equals(Object other) {
 		if (other == null || !(other instanceof LonelyTweetModel)) {
 			return false;
