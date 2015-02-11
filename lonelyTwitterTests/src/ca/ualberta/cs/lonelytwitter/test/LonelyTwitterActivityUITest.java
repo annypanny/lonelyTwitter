@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity;
 import ca.ualberta.cs.lonelytwitter.NormalTweetModel;
-
+import ca.ualberta.cs.lonelytwitter.R;
 /*
  * generate this class with new.. JUnit Test Case
  * set superclass to ActivityInstrumentationTestCase2
@@ -34,13 +34,36 @@ public class LonelyTwitterActivityUITest extends
 		textInput = ((EditText) activity.findViewById(ca.ualberta.cs.lonelytwitter.R.id.body));
 	}
 	
+	public void testSetText() {
+		String text = "neat!";
+		// run a UI thread
+		instrumentation.runOnMainSync(new Runnable() {
+			@Override
+			public void run()
+			{
+				textInput.setText("neat!");				
+			}			
+		});
+		// wait for your thread end
+		instrumentation.waitForIdleSync();
+		//textInput.setText(text);
+		assertEquals("Does this work?", text, textInput.getText().toString());
+	}
+	
 	/*
 	 * fills in the input text field and clicks the 'save'
 	 * button for the activity under test
 	 */
+	
 	private void makeTweet(String text) {
+		String text1 = "haha";
+		ListView view = (ListView) activity.findViewById(R.id.intentText);
+		assertNotNull(view);
+		assertEquals("Is this correct?",text1, textInput.getText().toString());
+		
+		
 		assertNotNull(activity.findViewById(ca.ualberta.cs.lonelytwitter.R.id.save));
-		textInput.setText(text);
+		textInput.setText(text1);
 		((Button) activity.findViewById(ca.ualberta.cs.lonelytwitter.R.id.save)).performClick();
 	}
 }
